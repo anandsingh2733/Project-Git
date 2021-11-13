@@ -15,14 +15,14 @@ pipeline {
 
         stage ("Git Clone"){
             steps {
-                git branch: 'dev', GIT_HUB_CREDENTIALS: 'github', url: 'https://github.com/anandsingh2733/Project-Git'
+                git branch: 'dev', credentialsId: 'github', url: 'https://github.com/anandsingh2733/Project-Git'
                 echo "Cloning into GitHub"
             }
         }
 
         stage ("Git Checkout"){
             steps {
-                git branch: 'dev', GIT_HUB_CREDENTIALS: 'github', url: 'https://github.com/anandsingh2733/Project-Git'
+                git branch: 'dev', credentialsId: 'github', url: 'https://github.com/anandsingh2733/Project-Git'
                 echo "Checking out into GitHub"
             }
         }
