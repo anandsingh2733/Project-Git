@@ -12,10 +12,25 @@ pipeline {
         SERVER_CREDENTIALS = credentials ('GIT_HUB_CREDENTIALS')
     }
     stages {
+
+        stage ("Git Clone"){
+            steps {
+                git branch: 'dev', GIT_HUB_CREDENTIALS: 'github', url: 'https://github.com/anandsingh2733/Project-Git'
+                echo "Cloning into GitHub"
+            }
+        }
+
+        stage ("Git Checkout"){
+            steps {
+                git branch: 'dev', GIT_HUB_CREDENTIALS: 'github', url: 'https://github.com/anandsingh2733/Project-Git'
+                echo "Checking out into GitHub"
+            }
+        }
+
         stage ("build"){
             steps {
                 echo 'building the application ....'
-                echo "building version ${NEW_VERSION}"
+                // echo "building version ${NEW_VERSION}"
                 build maven
             }
         }
@@ -29,7 +44,7 @@ pipeline {
         stage ("deploy"){
             steps {
                 echo 'deploying the application ... '
-                echo "deploying with ${SERVER_CREDENTIALS}"
+                // echo "deploying with ${SERVER_CREDENTIALS}"
             }
         }
     }
