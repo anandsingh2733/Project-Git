@@ -15,14 +15,15 @@ pipeline {
 
         stage ("Git Clone"){
             steps {
-                git branch: 'dev', credentialsId: 'github', url: 'https://github.com/anandsingh2733/Project-Git'
+                // git branch: 'dev', credentialsId: 'github', url: 'https://github.com/anandsingh2733/Project-Git'
+                git branch: 'main', credentialsId: 'github', url: 'https://github.com/anandsingh2733/Project-Git'
                 echo "Cloning into GitHub"
             }
         }
 
         stage ("Git Checkout"){
             steps {
-                git branch: 'dev', credentialsId: 'github', url: 'https://github.com/anandsingh2733/Project-Git'
+                git branch: 'main', credentialsId: 'github', url: 'https://github.com/anandsingh2733/Project-Git'
                 echo "Checking out into GitHub"
             }
         }
@@ -30,8 +31,8 @@ pipeline {
         stage ("build"){
             steps {
                 echo 'building the application ....'
-                // echo "building version ${NEW_VERSION}"
-                build maven
+                echo "building version ${NEW_VERSION}"
+                // build maven
             }
         }
 
