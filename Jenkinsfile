@@ -9,7 +9,7 @@ pipeline {
     }
     environment {
         NEW_VERSION = 1.0
-        SERVER_CREDENTIALS = credentials('GIT_HUB_CREDENTIALS')
+        // SERVER_CREDENTIALS = credentials('GIT_HUB_CREDENTIALS')
     }
     stages {
 
